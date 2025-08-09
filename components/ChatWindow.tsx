@@ -50,7 +50,8 @@ export default function ChatWindow({
     const load = async () => {
       // `http://localhost:4000/api/messages/${meId}/${otherId}` ||
       // const url = new URL(`http://10.0.30.40:4000/api/messages/${meId}/${otherId}`);
-      const url = new URL(`${process.env.DOMAIN_URLS}/api/messages/${meId}/${otherId}`);
+      // const url = new URL(`${process.env.DOMAIN_URL}/api/messages/${meId}/${otherId}`);
+      const url = new URL(`https://chat-socketio-express-backend.onrender.com/api/messages/${meId}/${otherId}`);
       url.searchParams.set("limit", "50");
       const r = await fetch(url.toString());
       const data: RawMessage[] = await r.json();
@@ -64,7 +65,8 @@ export default function ChatWindow({
       // `http://localhost:4000/api/threads/${meId}/read/${otherId}` ||
       // mark read for anything visible
       // await fetch(`http://10.0.30.40:4000/api/threads/${meId}/read/${otherId}`, { method: "POST" }).catch(() => { });
-      await fetch(`${process.env.DOMAIN_URL}/api/threads/${meId}/read/${otherId}`, { method: "POST" }).catch(() => { });
+      // await fetch(`${process.env.DOMAIN_URL}/api/threads/${meId}/read/${otherId}`, { method: "POST" }).catch(() => { });
+      await fetch(`https://chat-socketio-express-backend.onrender.com/api/threads/${meId}/read/${otherId}`, { method: "POST" }).catch(() => { });
       scrollToBottom(false);
     };
     load();

@@ -9,7 +9,8 @@ export default function ContactsSidebar({ selected }: { selected?: string }) {
   const [contacts, setContacts] = useState<Contact[]>([]);
 
   useEffect(() => {
-    fetch(`${process.env.DOMAIN_URL}/api/contacts`)
+    // fetch(`${process.env.DOMAIN_URL}/api/contacts`)
+    fetch(`https://chat-socketio-express-backend.onrender.com/api/contacts`)
       .then((r) => r.json())
       .then(setContacts)
       .catch(() => {

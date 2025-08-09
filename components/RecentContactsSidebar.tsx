@@ -27,7 +27,8 @@ export default function RecentContactsSidebar({
     try {
       // const r = await fetch(`http://localhost:4000/api/threads/${meId}`);
       // const r = await fetch(`http://10.0.30.40:4000/api/threads/${meId}`);
-      const r = await fetch(`${process.env.DOMAIN_URL}/api/threads/${meId}`);
+      // const r = await fetch(`${process.env.DOMAIN_URL}/api/threads/${meId}`);
+      const r = await fetch(`https://chat-socketio-express-backend.onrender.com/api/threads/${meId}`);
       const data: ThreadSummary[] = await r.json();
       setThreads(data);
     } catch {
