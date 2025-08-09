@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(transparent 30px, rgba(0, 0, 0, 0.02) 31px);
+  background-size: 30px 30px;
+}
